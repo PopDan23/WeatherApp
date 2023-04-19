@@ -1,0 +1,30 @@
+import javafx.application.Application;
+import "javafx.geometry.Pos";
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import com.thoughtworks.qdox.JavaProjectBuilder;
+import com.thoughtworks.qdox.model.JavaClass;
+import java.io.File;
+
+public class Main {
+public static void main(String[] args) {
+JavaProjectBuilder builder = new JavaProjectBuilder();
+builder.addSourceFolder(new File("D:\IDEA\WeatherappTry1.java"));
+
+for (JavaClass cls: builder.getClasses()) {
+System.out.println(cls.getFullyQualifiedName());
+}
+}
+}
